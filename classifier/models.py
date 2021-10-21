@@ -22,7 +22,6 @@ class Image(models.Model):
             data_prediction = image_model.predict(preprocess_image)
             decoded_data = decode_predictions(data_prediction)[0][0][1]
             self.classification = str(decoded_data)
-            print(decoded_data)
         except Exception as e:
             print("Error Message", e)
         super().save(force_insert, force_update, using, update_fields)
